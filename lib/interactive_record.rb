@@ -9,9 +9,15 @@ class InteractiveRecord
 
   def self.column_names
     DB[:conn].results_as_hash = true
+    sql = "PRAGAMA table_info ('#{table_name}')"
+    table_info = DB[:conn].execute(sql)
 
-    
+    column_names = []
 
+    table_info.each do |col|
+      column_names << col["name"]
+    end
+    column_names.compact
   end
 
 end
