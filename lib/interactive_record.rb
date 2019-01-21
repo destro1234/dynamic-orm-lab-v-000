@@ -43,5 +43,6 @@ class InteractiveRecord
       values.join(", ")
     end
   end
+end
 
 end
